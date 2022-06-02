@@ -1,6 +1,10 @@
 import turbowalk, { IEntry } from 'turbowalk';
 import { fs, log, selectors, types, util } from 'vortex-api';
 
+export const IGNORABLE_FILES = [
+  'LICENSE', 'README.md', 'manifest.json', 'icon.png',
+];
+
 export const GAME_ID = 'vrising';
 export const isVRising = (gameId: string) => [GAME_ID].includes(gameId);
 

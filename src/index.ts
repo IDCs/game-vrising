@@ -2,7 +2,7 @@ import Bluebird from 'bluebird';
 import path from 'path';
 import { fs, log, selectors, types, util } from 'vortex-api';
 
-import { GAME_ID, genProps } from './common';
+import { GAME_ID, IGNORABLE_FILES } from './common';
 import { ensureBIXMod } from './payloadDeployer';
 
 const NAME = 'V Rising';
@@ -49,6 +49,8 @@ function main(context: types.IExtensionContext) {
     setup: (discovery: types.IDiscoveryResult) => prepareForModding(context.api, discovery),
     details: {
       steamAppId: +STEAM_ID,
+      ignoreConflicts: IGNORABLE_FILES,
+      ignoreDeploy: IGNORABLE_FILES,
     },
   });
 
